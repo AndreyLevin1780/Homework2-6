@@ -10,5 +10,4 @@ public class EmployeesCollectionHomeworkApplication {
 		SpringApplication.run(EmployeesCollectionHomeworkApplication.class, args);
 	}
 
-
 }
