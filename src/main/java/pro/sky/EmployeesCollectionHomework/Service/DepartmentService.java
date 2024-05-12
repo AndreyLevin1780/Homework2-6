@@ -18,8 +18,6 @@ public class DepartmentService {
         this.employeeService = employeeService;
     }
 
-    private final Map<String, Employee> employees = new HashMap();
-
     public Employee findMaximalSalaryEmployeeByDepartment(int department) {
         return employeeService.findAll().stream()
                 .filter(e -> e.getDepartment() == department)
