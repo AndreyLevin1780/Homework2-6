@@ -1,6 +1,7 @@
-package pro.sky.EmployeesCollectionHomework;
+package pro.sky.EmployeesCollectionHomework.Service;
 
 import org.springframework.stereotype.Service;
+import pro.sky.EmployeesCollectionHomework.Employee;
 import pro.sky.EmployeesCollectionHomework.Exceptions.EmployeeAlreadyAddedException;
 import pro.sky.EmployeesCollectionHomework.Exceptions.EmployeeNotFoundException;
 import pro.sky.EmployeesCollectionHomework.Exceptions.EmployeeStorageIsFullException;
@@ -13,16 +14,16 @@ public class EmployeeService {
     private final int maxNumberOfEmployees = 10;
     private final Map<String, Employee> employees = new HashMap();
 
-    public Employee add(String firstName, String lastName) {
+    public Employee add(String firstName, String lastName, int department, int salary) {
         String key = buildKey(firstName, lastName);
-        Employee employee = new Employee(firstName, lastName);
+        Employee employee = new Employee(firstName, lastName, department, salary);
         if (employees.containsKey(key)) {
             throw new EmployeeAlreadyAddedException();
         }
         if (employees.size() >= maxNumberOfEmployees) {
             throw new EmployeeStorageIsFullException();
         }
-        employees.put(key,employee);
+        employees.put(key, employee);
         return employee;
     }
 
@@ -42,7 +43,7 @@ public class EmployeeService {
         return employees.get(key);
     }
 
-    public String buildKey (String name, String surename) {
+    public String buildKey(String name, String surename) {
         return name + surename;
     }
 

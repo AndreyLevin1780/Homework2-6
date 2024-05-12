@@ -5,9 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pro.sky.EmployeesCollectionHomework.Employee;
-import pro.sky.EmployeesCollectionHomework.EmployeeService;
+import pro.sky.EmployeesCollectionHomework.Service.EmployeeService;
 
-import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -21,8 +20,8 @@ public class EmployeeController {
     }
 
     @GetMapping("/add")
-    public Employee add(@RequestParam String firstName, @RequestParam String lastName) {
-        return employeeService.add(firstName, lastName);
+    public Employee add(@RequestParam String firstName, @RequestParam String lastName, @RequestParam int department, @RequestParam int salary) {
+        return employeeService.add(firstName, lastName, department, salary);
     }
     @GetMapping("/remove")
     public Employee remove(@RequestParam String firstName, @RequestParam String lastName) {
