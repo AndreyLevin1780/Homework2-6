@@ -23,7 +23,6 @@ public class DepartmentService {
                 .filter(e -> e.getDepartment() == department)
                 .max(Comparator.comparingInt(e -> e.getSalary()))
                 .orElseThrow(EmployeeNotFoundException::new);
-
     }
 
     public Employee findMinimalSalaryEmployeeByDepartment(int department) {
@@ -31,7 +30,6 @@ public class DepartmentService {
                 .filter(e -> e.getDepartment() == department)
                 .min(Comparator.comparingInt(e -> e.getSalary()))
                 .orElseThrow(EmployeeNotFoundException::new);
-
     }
 
     public List<Employee> printEmployeesByDepartment(int department) {
