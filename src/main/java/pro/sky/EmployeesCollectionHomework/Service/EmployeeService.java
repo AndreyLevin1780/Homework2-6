@@ -13,8 +13,15 @@ public class EmployeeService {
 
     private final int maxNumberOfEmployees = 10;
     private final Map<String, Employee> employees = new HashMap();
+    private final ValidationService validationService;
+
+    public EmployeeService(ValidationService validationService) {
+        this.validationService = validationService;
+    }
 
     public Employee add(String firstName, String lastName, int department, int salary) {
+        firstName = validationService.validateName(firstName);
+        lastName = validationService.validateName(lastName);
         String key = buildKey(firstName, lastName);
         Employee employee = new Employee(firstName, lastName, department, salary);
         if (employees.containsKey(key)) {

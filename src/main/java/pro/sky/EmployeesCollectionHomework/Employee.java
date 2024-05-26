@@ -2,8 +2,10 @@ package pro.sky.EmployeesCollectionHomework;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Employee {
-    private  String firstName;
+    private String firstName;
     private String lastName;
 
     private int department;
