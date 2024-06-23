@@ -72,10 +72,12 @@ public class Employee {
 
     @Override
     public String toString() {
-        return  "Имя = " + firstName +
-                ", Фамилия = " + lastName +
-                "."
-                ;
+        return "Employee{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", department=" + department +
+                ", salary=" + salary +
+                '}';
     }
 
     public int getDepartment() {

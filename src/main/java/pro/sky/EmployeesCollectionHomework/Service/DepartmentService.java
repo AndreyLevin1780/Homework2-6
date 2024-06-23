@@ -42,4 +42,11 @@ public class DepartmentService {
         return employeeService.findAll().stream()
                 .collect(groupingBy(e -> e.getDepartment()));
     }
+
+    public int calculateSumSalaryByDepartment(int department) {
+        return employeeService.findAll().stream()
+                .filter(e -> e.getDepartment() == department)
+                .map(Employee :: getSalary)
+                .reduce(0, (a, b) -> a + b);
+    }
 }

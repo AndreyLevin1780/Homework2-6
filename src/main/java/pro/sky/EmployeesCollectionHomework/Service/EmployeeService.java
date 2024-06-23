@@ -9,9 +9,9 @@ import pro.sky.EmployeesCollectionHomework.Exceptions.EmployeeStorageIsFullExcep
 import java.util.*;
 
 @Service
-public class EmployeeService {
+public class EmployeeService { 
 
-    private final int maxNumberOfEmployees = 10;
+    private final int maxNumberOfEmployees = 5;
     private final Map<String, Employee> employees = new HashMap();
     private final ValidationService validationService;
 
